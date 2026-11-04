@@ -1,43 +1,57 @@
-# Astro Starter Kit: Minimal
+# Hugo Álvarez — Branding & Editorial Web
 
-```sh
-npm create astro@latest -- --template minimal
+Plataforma y prototipo de identidad visual, propuesta de branding y publicaciones editoriales para el Ing. **Hugo Álvarez Carbajal** (Salina Cruz, Oaxaca).
+
+* **URL en Producción:** [https://brand.hugo.dimedia.dev/](https://brand.hugo.dimedia.dev/)
+* **Servidor:** Contenedor Docker `hugo_brand_web` en `tlon_cloud` (Nginx + Traefik v3).
+* **Stack:** [Astro](https://astro.build/) (generador de sitios estáticos).
+
+---
+
+## 🧞 Comandos Canónicos
+
+| Comando | Acción |
+| :--- | :--- |
+| `npm install` | Instala dependencias del proyecto |
+| `npm run dev` | Inicia el servidor de desarrollo local en `http://localhost:4321/` |
+| `npm run build` | Compila el sitio estático para producción en `./dist/` |
+| `npm run preview` | Previsualiza el build localmente |
+| `npm run deploy` | **Actualiza, compila y despliega a producción en `tlon_cloud`** |
+
+---
+
+## 🚀 Despliegue a Producción
+
+El despliegue a producción está automatizado mediante el script local:
+
+```bash
+npm run deploy
+# o directamente:
+./scripts/sincronizar_brand_hugo.sh [opciones]
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Opciones del Script de Despliegue:
+* `-p`, `--skip-pull`: Omite el paso de `git pull origin main`.
+* `-b`, `--skip-build`: Omite la compilación `npm run build` y sincroniza el `./dist/` actual.
+* `-d`, `--dry-run`: Modo simulación; muestra los archivos que se transferirían sin aplicar cambios en el servidor.
+* `-h`, `--help`: Muestra la ayuda interactiva.
 
-## 🚀 Project Structure
+---
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📁 Estructura del Proyecto
 
 ```text
-/
-├── public/
+├── public/                 # Activos estáticos, imágenes, fuentes e iconos
+│   └── assets/images/blog/ # Galería de imágenes para artículos de blog
+├── scripts/                # Scripts de automatización y despliegue
+│   └── sincronizar_brand_hugo.sh
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/         # Componentes Astro / UI reutilizables
+│   ├── content/blog/       # Artículos en formato Markdown
+│   ├── data/               # Archivos JSON de configuración y navegación
+│   ├── layouts/            # Plantillas maestras de página
+│   └── pages/              # Enrutamiento estático de Astro
+└── dist/                   # Artefactos compilados listos para distribución
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Para directivas de automatización y reglas de agentes de IA, consulta [`AGENTS.md`](./AGENTS.md).
