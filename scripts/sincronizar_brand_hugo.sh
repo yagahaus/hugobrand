@@ -113,7 +113,7 @@ if [ "${SKIP_PULL}" = false ]; then
     if ! git pull origin main 2>/dev/null; then
         if command -v gh >/dev/null 2>&1 && gh auth status >/dev/null 2>&1; then
             echo -e "${YELLOW}Usando autenticación vía GitHub CLI (gh)...${RESET}"
-            git pull "https://x-access-token:$(gh auth token)@github.com/cesarleyto/hugoalvarez.git" main
+            git pull "https://x-access-token:$(gh auth token)@github.com/yagahaus/hugobrand.git" main
         else
             echo -e "${RED}❌ Error al ejecutar git pull origin main.${RESET}"
             exit 1
