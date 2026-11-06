@@ -1,82 +1,127 @@
-# Directivas Operativas para Agentes de IA — Hugo Álvarez Branding (`hugoalvarez`)
+# Directivas Operativas para Agentes de IA — Hugo Álvarez Branding (`hugobrand` / `hugoalvarez`)
 
-Este espacio de trabajo corresponde al repositorio **`hugoalvarez`** (propuesta de branding, identidad gráfica y prototipo editorial del Ing. Hugo Álvarez Carbajal, proyecto **MKT 499** de DiMedia).
+Este espacio de trabajo corresponde al repositorio **`hugobrand`** (propuesta de branding, identidad gráfica y prototipo editorial del Ing. Hugo Álvarez Carbajal, proyecto **MKT 499** de DiMedia), alojado en la organización GitHub:
+👉 **`https://github.com/yagahaus/hugobrand`**
 
-Todo agente de IA (**Antigravity**, **Agy**, **Claude Code**, etc.) que opere en este repositorio debe cumplir de forma inmediata y obligatoria las siguientes reglas operativas:
+Todo agente de IA (**Antigravity**, **Agy**, **Claude Code**, **Cursor**, etc.) que opere en este repositorio debe cumplir de forma obligatoria las siguientes directivas de arquitectura y despliegue:
 
 ---
 
-## 🚀 1. Regla Canónica de Despliegue a Producción (Tarea Repetitiva)
+## 🚀 1. Especificaciones de Despliegue y Arquitectura de Producción
 
 > [!IMPORTANT]
-> **REGLA DE ORO:** Este repositorio sincroniza **única y exclusivamente hacia `https://brand.hugo.dimedia.dev/`** (contenedor Docker `hugo_brand_web` en el servidor `tlon_cloud`).
+> **REGLA DE ORO DE PRODUCCIÓN:**
+> Este repositorio sincroniza **única y exclusivamente hacia `https://brand.hugo.dimedia.dev/`** (contenedor Docker `hugo_brand_web` en el servidor `tlon_cloud`).
 > 
-> **NO confundir con el repo gemelo `hugoalvarezmx`**, el cual opera en AWS S3 + CloudFront para el dominio `hugoalvarez.mx`.
+> **NO confundir con el repo gemelo `hugoalvarezmx`**, el cual opera en AWS S3 + CloudFront para el portal oficial `hugoalvarez.mx`.
 
-### Procedimiento Automatizado Inmediato (Sin Demoras)
-* **CI/CD Automatizado (GitHub Actions):** Todo `git push` a `main` (o cambios publicados desde el CMS) dispara automáticamente el workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) que compila, sincroniza vía rsync a `tlon_cloud`, recarga Nginx y verifica el sitio.
-* **Manual / Supervisado Local:** Cuando el usuario indique:
-  * *"Actualiza el repo y enviar a producción"*
-  * *"Despliega a producción"*
-  * *"Sincroniza a producción"*
-  * O cualquier instrucción análoga:
+### 📊 Ficha Técnica del Entorno
 
-El agente puede hacer push a `main` o ejecutar el script local:
+| Parámetro | Valor / Especificación |
+| :--- | :--- |
+| **Repositorio GitHub** | `yagahaus/hugobrand` (rama principal: `main`) |
+| **URL Pública en Vivo** | [https://brand.hugo.dimedia.dev/](https://brand.hugo.dimedia.dev/) |
+| **Servidor Físico / Cloud**| `tlon_cloud` (DigitalOcean Droplet IP `209.38.142.8`) |
+| **Ruta Remota en Servidor** | `/root/dev-docker/dock-hugo-brand/html/` |
+| **Contenedor Docker** | `hugo_brand_web` (imagen `nginx:alpine`) |
+| **Orquestador / Proxy** | Traefik v3 con terminación SSL/TLS automática |
+| **Comando de Recarga** | `docker exec hugo_brand_web nginx -s reload` |
+| **Herramienta de Build** | Astro v6+ (`npm run build` genera `./dist/`, requiere Node.js `>=22.12.0`) |
+| **Método de Transferencia**| `rsync -avz --delete` vía SSH |
+| **Healthcheck** | HTTP 200 en `https://brand.hugo.dimedia.dev/` |
+
+---
+
+## ⚙️ 2. Mecanismos de Despliegue (Cómo Desplegar)
+
+Existen dos vías de despliegue coordinadas:
+
+### Vía A: CI/CD Automático en GitHub Actions (Vía Primaria)
+* **Archivo de Workflow:** [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
+* **Disparadores (Triggers):**
+  1. Todo `git push` a la rama `main` (incluyendo merges de pull requests).
+  2. Publicaciones de contenido desde el CMS editorial Decap CMS (`/admin/`).
+  3. Ejecución manual vía `workflow_dispatch` (mediante GitHub UI o `gh workflow run deploy.yml`).
+* **Secretos de GitHub configurados en `yagahaus/hugobrand`:**
+  - `SSH_HOST`: `209.38.142.8`
+  - `SSH_USER`: `root`
+  - `SSH_PRIVATE_KEY`: Clave SSH Ed25519 dedicada (`github-actions-deploy-hugobrand`). Su contraparte pública está autorizada en `/root/.ssh/authorized_keys` de `tlon_cloud`.
+* **Pipeline:**
+  1. `actions/checkout@v4`
+  2. `actions/setup-node@v4` (Node.js 22 con cache npm)
+  3. `npm ci`
+  4. `npm run build`
+  5. `webfactory/ssh-agent@v0.9.0` con la clave privada Ed25519
+  6. Registro de host en `known_hosts` con `ssh-keyscan`
+  7. `rsync -avz --delete dist/ root@209.38.142.8:/root/dev-docker/dock-hugo-brand/html/`
+  8. `ssh root@209.38.142.8 "docker exec hugo_brand_web nginx -s reload"`
+  9. Comprobación de salud HTTP 200 con `curl`
+
+### Vía B: Script Local Supervisado (Fallback / Respaldo)
+Si no se desea o no se puede esperar al pipeline de GitHub, o se requiere sincronizar cambios directamente desde la máquina local:
 
 ```bash
-# Opción 1 (Vía npm script canónico):
+# Opción canónica recomendada:
 npm run deploy
 
-# Opción 2 (Ejecución directa del script):
-./scripts/sincronizar_brand_hugo.sh
+# O invocación directa:
+./scripts/sincronizar_brand_hugo.sh [banderas]
 ```
 
-### Qué hace este script automáticamente:
-1. **Paso 1 (Git Pull):** Actualiza el repositorio local desde `origin main` (con soporte para SSH y fallback seguro con GitHub CLI).
-2. **Paso 2 (Build):** Compila el sitio estático de Astro (`npm run build`) generando `./dist/`.
-3. **Paso 3 (Rsync):** Sincroniza incrementalmente `./dist/` hacia `tlon_cloud:/root/dev-docker/dock-hugo-brand/html/` con `--delete`.
-4. **Paso 4 (Reload):** Recarga Nginx en caliente dentro del contenedor Docker (`docker exec hugo_brand_web nginx -s reload`).
-5. **Paso 5 (Healthcheck):** Verifica la respuesta HTTP 200 en `https://brand.hugo.dimedia.dev/`.
-
 *Banderas disponibles:*
-- `-p`, `--skip-pull`: Omite el `git pull` si ya estás sobre los commits deseados.
-- `-b`, `--skip-build`: Omite el build de Astro y usa el `dist/` existente.
+- `-p`, `--skip-pull`: Omite `git pull` (usa el código local actual).
+- `-b`, `--skip-build`: Omite `npm run build` y sincroniza el `./dist/` existente.
 - `-d`, `--dry-run`: Simula la transferencia de archivos sin aplicarla en el servidor.
+- `-h`, `--help`: Muestra la ayuda interactiva.
 
 ---
 
-## 🎯 2. Parámetros del Entorno de Producción
+## 🤖 3. Protocolo Operativo para Agentes de IA
 
-| Parámetro | Valor |
-| :--- | :--- |
-| **URL Pública** | [https://brand.hugo.dimedia.dev/](https://brand.hugo.dimedia.dev/) |
-| **Servidor Remoto** | `tlon_cloud` (`209.38.142.8`) |
-| **Ruta en Servidor** | `/root/dev-docker/dock-hugo-brand/html/` |
-| **Contenedor Docker** | `hugo_brand_web` (imagen `nginx:alpine` en red Traefik v3) |
-| **Script Local** | `./scripts/sincronizar_brand_hugo.sh` |
-| **Script Respaldo** | `/Users/tlon/dmx-projects/mkt-499-hugo-sc/scripts/sincronizar_brand_hugo.sh` |
+Cuando el usuario dé instrucciones como:
+* *"Despliega a producción"*
+* *"Sube los cambios"*
+* *"Actualiza el sitio"*
+* *"Envía a producción"*
+
+El agente debe:
+1. **Verificar estado de Git:** Asegurarse de que no queden archivos sin commitear relevantes.
+2. **Hacer Push o Ejecutar Deploy:**
+   * Si los cambios se commitean y se hace `git push origin main`, **GitHub Actions desplegará automáticamente**. El agente puede monitorear el run con:
+     ```bash
+     gh run list --repo yagahaus/hugobrand --limit 1
+     gh run watch <run_id> --repo yagahaus/hugobrand
+     ```
+   * Si el usuario pide un despliegue local inmediato o supervisado, ejecutar directamente:
+     ```bash
+     npm run deploy
+     ```
+3. **Validación:** Confirmar siempre la respuesta HTTP 200 en `https://brand.hugo.dimedia.dev/`.
 
 ---
 
-## 💻 3. Comandos de Desarrollo
+## 💻 4. Comandos de Desarrollo Local
 
 ```bash
-# Servidor local de desarrollo
+# Instalar dependencias
+npm install
+
+# Servidor local de desarrollo (http://localhost:4321/)
 npm run dev
 
-# Compilación estática
+# Compilación estática local (genera ./dist/)
 npm run build
 
 # Previsualizar build local
 npm run preview
 
-# Desplegar a producción en tlon_cloud
+# Desplegar localmente a producción
 npm run deploy
 ```
 
 ---
 
-## 🛡️ 4. Directriz de Comunicación (Fase No Electoral)
+## 🛡️ 5. Directriz de Comunicación y Contenido (Fase No Electoral)
 
 * **Enfoque Estratégico:** Branding de liderazgo ciudadano, cultura del esfuerzo, vinculación deportiva, streetwear y conexión con la juventud / Gen Z, y emprendimiento local en Salina Cruz.
 * **Prohibición:** No incluir llamados explícitos al voto ni referencias a cargos públicos de elección popular o partidos políticos.
