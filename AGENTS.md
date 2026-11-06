@@ -14,13 +14,14 @@ Todo agente de IA (**Antigravity**, **Agy**, **Claude Code**, etc.) que opere en
 > **NO confundir con el repo gemelo `hugoalvarezmx`**, el cual opera en AWS S3 + CloudFront para el dominio `hugoalvarez.mx`.
 
 ### Procedimiento Automatizado Inmediato (Sin Demoras)
-Cuando el usuario indique:
-* *"Actualiza el repo y enviar a producción"*
-* *"Despliega a producción"*
-* *"Sincroniza a producción"*
-* O cualquier instrucción análoga:
+* **CI/CD Automatizado (GitHub Actions):** Todo `git push` a `main` (o cambios publicados desde el CMS) dispara automáticamente el workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) que compila, sincroniza vía rsync a `tlon_cloud`, recarga Nginx y verifica el sitio.
+* **Manual / Supervisado Local:** Cuando el usuario indique:
+  * *"Actualiza el repo y enviar a producción"*
+  * *"Despliega a producción"*
+  * *"Sincroniza a producción"*
+  * O cualquier instrucción análoga:
 
-El agente **DEBE** ejecutar de inmediato y sin rodeos el script local:
+El agente puede hacer push a `main` o ejecutar el script local:
 
 ```bash
 # Opción 1 (Vía npm script canónico):
