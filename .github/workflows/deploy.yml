@@ -1,0 +1,61 @@
+name: Despliegue Automático a Producción
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Compilar y Desplegar a tlon_cloud
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configurar Node.js (v22)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: 📦 Instalar dependencias
+        run: npm ci
+
+      - name: 🔨 Compilar sitio estático (Astro build)
+        run: npm run build
+
+      - name: 🔑 Configurar SSH Agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: 🌐 Agregar host a known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: 🚀 Sincronizar archivos vía Rsync
+        run: |
+          rsync -avz --delete dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/root/dev-docker/dock-hugo-brand/html/
+
+      - name: 🔄 Recargar Nginx en contenedor hugo_brand_web
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "docker exec hugo_brand_web nginx -s reload"
+
+      - name: 🩺 Verificación de salud (Healthcheck)
+        run: |
+          echo "Verificando respuesta en vivo..."
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://brand.hugo.dimedia.dev/)
+          echo "HTTP Status: ${HTTP_STATUS}"
+          if [ "${HTTP_STATUS}" -ne 200 ]; then
+            echo "❌ Falló el healthcheck. Código HTTP: ${HTTP_STATUS}"
+            exit 1
+          fi
+          echo "✓ Despliegue exitoso en https://brand.hugo.dimedia.dev/"
