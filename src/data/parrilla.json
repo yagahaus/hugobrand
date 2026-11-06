@@ -3,153 +3,69 @@
   "description": "Deadlines: Material para el diseñador",
   "deadlines": [
     {
-      "date": "2026-10-31",
-      "task": "Foto del altar: Entregar la foto del papá y Hugo. ¿Que le gustaba comer y beber? ¿Hace cuanto murio? Para construir el posteo de Memorial."
-    },
-    {
-      "date": "2026-11-02",
-      "task": "Fotos trabajando en Cadereyta."
-    },
-    {
-      "date": "2026-11-07",
-      "task": "Video de invitación para el Hugo Fest."
-    },
-    {
       "date": "2026-11-11",
-      "task": "Ajustando detalles del HugoFest desde Cadereyta. (Trabajando lejos, el corazón siempre en el puerto)"
+      "task": "Cerrar convocatoria de emprendimientos y planchar detalles logísticos."
     },
     {
       "date": "2026-11-13",
-      "task": "Acuerdo con minimo 3 microinfluencers que harán los storytimes del evento, publicarán entre 17 al 19."
+      "task": "Asegurar acuerdo y coordinación con los 3 microinfluencers que harán los storytimes del evento (publicarán del 17 al 19)."
     }
   ],
   "posts": [
     {
-      "date": "2026-10-31",
-      "type": "Imagen fija",
-      "category": "Efeméride",
-      "title": "Calaverita de Hugo Álvarez",
-      "description": "Publicar la calaverita literaria ilustrada.",
-      "note": "Mantener tono festivo y regional con alta cercanía."
-    },
-    {
-      "date": "2026-11-01",
-      "type": "Imagen fija",
-      "category": "Efeméride",
-      "title": "Todos los santos",
-      "description": "Post conmemorativo por Todos los Santos.",
-      "note": "Respeto a las tradiciones locales."
-    },
-    {
-      "date": "2026-11-02",
-      "type": "Imagen fija",
-      "category": "Efeméride",
-      "title": "Día de Muertos",
-      "description": "Post alusivo a la festividad de Día de Muertos en el Istmo.",
-      "note": "Conexión cultural profunda con la región."
-    },
-    {
-      "date": "2026-11-02",
-      "type": "Imagen fija",
-      "category": "Hugo Fest",
-      "title": "Lanzamiento del cartel oficial",
-      "description": "Lanzamiento del primer cartel del Hugo Fest Emprendedor Buen Fin 2026 en imagen simple.",
-      "note": "Calentar motores y abrir expectativa del sistema de boletos."
-    },
-    {
-      "date": "2026-11-03",
-      "type": "Imagen fija",
-      "category": "Posicionamiento Personal",
-      "title": "Puntos clave de Hugo Álvarez",
-      "description": "Imagen con viñetas claras sobre quién es, qué hace y su perfil profesional.",
-      "note": "Construcción de perfil y autoridad."
-    },
-    {
-      "date": "2026-11-03",
-      "type": "Carrusel de imágenes",
-      "category": "Posicionamiento Personal",
-      "title": "Fotos trabajando en Cadereyta",
-      "description": "Equipo trabajando en obra y foto protagonista del ingeniero. Orgullo istmeño reparando Cadereyta.",
-      "note": "Mostrar compromiso laboral y cercanía a pesar de estar lejos."
-    },
-    {
-      "date": "2026-11-04",
-      "type": "Imagen fija",
-      "category": "Posicionamiento Personal",
-      "title": "Buzón Ciudadano",
-      "description": "Llamado a la acción invitando a entrar a la landing page a registrar sus datos y contar qué pasa en su colonia.",
-      "note": "Fomentar la participación activa de la comunidad."
-    },
-    {
-      "date": "2026-11-05",
-      "type": "Carrusel de imágenes",
-      "category": "Posicionamiento Personal",
-      "title": "Manifiesto en carrusel",
-      "description": "Post de 4 imágenes resumiendo la visión y facetas de Hugo de forma fragmentada y visual.",
-      "note": "Explicar la ideología y propuestas de valor."
-    },
-    {
       "date": "2026-11-06",
-      "type": "Video",
+      "type": "Imagen fija / Reel",
       "category": "Hugo Fest",
-      "title": "Invitación de Mario Carballido",
-      "description": "Video de Mario Carballido invitando al evento, acompañado de su confirmación.",
-      "note": "Atracción de miradas aprovechando la comunidad de Mario."
+      "title": "Lanzamiento del cartel oficial e invitación inicial",
+      "description": "Lanzamiento del primer cartel del Hugo Fest Emprendedor Buen Fin 2026 y video de arranque.",
+      "note": "Calentar motores y abrir expectativa del sistema de BUEN TICKET."
     },
     {
-      "date": "2026-11-06",
+      "date": "2026-11-08",
       "type": "Imagen fija",
       "category": "Hugo Fest",
-      "title": "Foto de Mario Carballido",
-      "description": "Fotografía complementaria de Mario Carballido anunciando su presencia.",
-      "note": "Reforzar el anuncio del video en formato estático."
+      "title": "Meme: ¿Plancito de BuenFin?",
+      "description": "Presumir de forma cool que el mejor plancito de Buen Fin es el HugoFest este 14 de Noviembre.",
+      "note": "Incentivar a registrarse."
     },
     {
       "date": "2026-11-09",
       "type": "Video",
       "category": "Hugo Fest",
-      "title": "Video de invitación de Hugo",
-      "description": "Banderazo fuerte de la semana previa con Hugo invitando directamente al evento.",
-      "note": "Conexión directa del anfitrión con su audiencia."
+      "title": "Invitación de Mario Carballido",
+      "description": "Video de Mario Carballido invitando al evento y a su conferencia magistral.",
+      "note": "Atracción de audiencia aprovechando el alcance de Mario."
     },
     {
       "date": "2026-11-10",
-      "type": "Carrusel de imágenes",
-      "category": "Hugo Fest",
-      "title": "Primer bloque de emprendedores inscritos",
-      "description": "Presumir a los primeros negocios y marcas confirmadas para el Buen Fin.",
-      "note": "Incentivar a más emprendedores a unirse y registrarse."
+      "type": "Imagen fija",
+      "category": "Efeméride",
+      "title": "Día de la Armada de México",
+      "description": "Reconocimiento a las fuerzas armadas.",
+      "note": "Relevancia costera y nacional."
     },
     {
       "date": "2026-11-11",
-      "type": "Imagen fija",
-      "category": "Posicionamiento Personal",
-      "title": "Recordatorio del Buzón Ciudadano",
-      "description": "Queremos escucharte, cuéntanos qué pasa en tu colonia a través del enlace.",
-      "note": "Mantener viva la interacción y escucha activa."
+      "type": "Carrusel de imágenes",
+      "category": "Hugo Fest",
+      "title": "Salón Chesseline, ¿Cómo llegar?",
+      "description": "Vias a coche, transporte publico y alternarivas de como llegar.",
+      "note": "Información práctica."
     },
     {
       "date": "2026-11-12",
       "type": "Carrusel de imágenes",
       "category": "Hugo Fest",
-      "title": "Cuadrícula de emprendimientos e indicaciones",
-      "description": "Mosaico de 6 en 6 con los participantes actuales y pautas para asistir.",
-      "note": "Información práctica y visualmente atractiva."
+      "title": "¿Qué habrá en el Hugo Fest?",
+      "description": "Carrusel detallado de atractivos (comida, música, entretenimiento y logística) para persuadir al registro.",
+      "note": "Enfoque dinámico para impulsar la obtención del BUEN TICKET."
     },
     {
       "date": "2026-11-13",
       "type": "Carrusel de imágenes",
-      "category": "Posicionamiento Personal",
-      "title": "Preparación a distancia del Hugo Fest desde Cadereyta",
-      "description": "Videoconferencia en laptop junto al equipo viendo la landing page. Lejos de casa, el plan sigue.",
-      "note": "Demostrar capacidad multitarea y compromiso absoluto."
-    },
-    {
-      "date": "2026-11-13",
-      "type": "Imagen fija",
       "category": "Hugo Fest",
       "title": "Conteo regresivo / último llamado",
-      "description": "Último aviso de que el evento es mañana. Emoción a tope.",
+      "description": "Último aviso de que el evento es mañana. Emoción a tope. Si hay ensayo o algun backstage picture, se sube.",
       "note": "Generar urgencia para el arranque del festival."
     },
     {
@@ -186,6 +102,14 @@
     },
     {
       "date": "2026-11-17",
+      "type": "Imagen fija",
+      "category": "Posicionamiento Personal",
+      "title": "Recordatorio del Buzón Ciudadano",
+      "description": "Queremos escucharte, cuéntanos qué pasa en tu colonia a través del enlace.",
+      "note": "Mantener viva la interacción y escucha activa."
+    },
+    {
+      "date": "2026-11-17",
       "type": "Video",
       "category": "Colaboración",
       "title": "Microinfluencer 1: Storytime en el Hugo Fest",
@@ -198,7 +122,7 @@
       "category": "Colaboración",
       "title": "Microinfluencer 2: Storytime en el Hugo Fest",
       "description": "Segunda perspectiva de creadores invitados sobre el evento.",
-      "note": "Consolidar el eco digital de la semana pasada."
+      "note": "Consolidar el eco digital."
     },
     {
       "date": "2026-11-19",
@@ -223,14 +147,6 @@
       "title": "Día del Músico",
       "description": "Felicitación especial a los músicos y artistas de la región.",
       "note": "Conexión con el gremio artístico local."
-    },
-    {
-      "date": "2026-11-23",
-      "type": "Imagen fija",
-      "category": "Efeméride",
-      "title": "Día de la Armada de México",
-      "description": "Reconocimiento a las fuerzas armadas.",
-      "note": "Relevancia costera y nacional."
     },
     {
       "date": "2026-11-25",
