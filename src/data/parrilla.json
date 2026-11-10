@@ -4,7 +4,7 @@
   "deadlines": [
     {
       "date": "2026-11-11",
-      "task": "Cerrar convocatoria de emprendimientos y planchar detalles logísticos."
+      "task": "Nuevo anuncio de conversión y planchar detalles logísticos."
     },
     {
       "date": "2026-11-13",
@@ -12,62 +12,6 @@
     }
   ],
   "posts": [
-    {
-      "date": "2026-11-06",
-      "type": "Imagen fija / Reel",
-      "category": "Hugo Fest",
-      "title": "Lanzamiento del cartel oficial e invitación inicial",
-      "description": "Lanzamiento del primer cartel del Hugo Fest Emprendedor Buen Fin 2026 y video de arranque.",
-      "note": "Calentar motores y abrir expectativa del sistema de BUEN TICKET."
-    },
-    {
-      "date": "2026-11-08",
-      "type": "Imagen fija",
-      "category": "Hugo Fest",
-      "title": "Meme: ¿Plancito de BuenFin?",
-      "description": "Presumir de forma cool que el mejor plancito de Buen Fin es el HugoFest este 14 de Noviembre.",
-      "note": "Incentivar a registrarse."
-    },
-    {
-      "date": "2026-11-09",
-      "type": "Video",
-      "category": "Hugo Fest",
-      "title": "Invitación de Mario Carballido",
-      "description": "Video de Mario Carballido invitando al evento y a su conferencia magistral.",
-      "note": "Atracción de audiencia aprovechando el alcance de Mario."
-    },
-    {
-      "date": "2026-11-10",
-      "type": "Imagen fija",
-      "category": "Efeméride",
-      "title": "Día de la Armada de México",
-      "description": "Reconocimiento a las fuerzas armadas.",
-      "note": "Relevancia costera y nacional."
-    },
-    {
-      "date": "2026-11-11",
-      "type": "Carrusel de imágenes",
-      "category": "Hugo Fest",
-      "title": "Salón Chesseline, ¿Cómo llegar?",
-      "description": "Vias a coche, transporte publico y alternarivas de como llegar.",
-      "note": "Información práctica."
-    },
-    {
-      "date": "2026-11-12",
-      "type": "Carrusel de imágenes",
-      "category": "Hugo Fest",
-      "title": "¿Qué habrá en el Hugo Fest?",
-      "description": "Carrusel detallado de atractivos (comida, música, entretenimiento y logística) para persuadir al registro.",
-      "note": "Enfoque dinámico para impulsar la obtención del BUEN TICKET."
-    },
-    {
-      "date": "2026-11-13",
-      "type": "Carrusel de imágenes",
-      "category": "Hugo Fest",
-      "title": "Conteo regresivo / último llamado",
-      "description": "Último aviso de que el evento es mañana. Emoción a tope. Si hay ensayo o algun backstage picture, se sube.",
-      "note": "Generar urgencia para el arranque del festival."
-    },
     {
       "date": "2026-11-14",
       "type": "Video",
