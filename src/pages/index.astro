@@ -86,9 +86,17 @@ const monthsList = [...new Set(posts.map((post: any) => formatPostDate(post.date
         const typeLower = (post.type || '').toLowerCase();
         
         let iconType = 'image';
-        if (typeLower.includes('carrusel')) iconType = 'carousel';
-        else if (typeLower.includes('video')) iconType = 'video';
-        else if (typeLower.includes('imagen')) iconType = 'image';
+        let typeClass = 'type-image';
+        if (typeLower.includes('carrusel')) {
+          iconType = 'carousel';
+          typeClass = 'type-carousel';
+        } else if (typeLower.includes('video')) {
+          iconType = 'video';
+          typeClass = 'type-video';
+        } else if (typeLower.includes('imagen')) {
+          iconType = 'image';
+          typeClass = 'type-image';
+        }
 
         return (
           <article class="parrilla-row fondo-default" data-month={dateInfo.monthFilter}>
@@ -103,7 +111,7 @@ const monthsList = [...new Set(posts.map((post: any) => formatPostDate(post.date
             </div>
 
             <div class="col-type">
-              <div class="type-icon-wrapper">
+              <div class={`type-icon-wrapper ${typeClass}`}>
                 {iconType === 'video' ? (
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
                 ) : iconType === 'carousel' ? (
@@ -302,13 +310,26 @@ const monthsList = [...new Set(posts.map((post: any) => formatPostDate(post.date
   .type-icon-wrapper {
     width: 44px;
     height: 44px;
-    background-color: var(--color-acento2);
-    color: var(--texto-color-acento2);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
+  
+  /* Colores personalizados para los iconos */
+  .type-video {
+    background-color: #ff0000; /* Rojo YouTube */
+    color: #ffffff;
+  }
+  .type-carousel {
+    background-color: #25d366; /* Verde WhatsApp */
+    color: #ffffff;
+  }
+  .type-image {
+    background-color: #0070f3; /* Azul limpio */
+    color: #ffffff;
+  }
+
   .type-icon-wrapper svg {
     width: 22px;
     height: 22px;
