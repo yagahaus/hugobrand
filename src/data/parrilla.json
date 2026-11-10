@@ -9,6 +9,10 @@
     {
       "date": "2026-11-13",
       "task": "Asegurar acuerdo y coordinación con los 3 microinfluencers que harán los storytimes del evento (publicarán del 17 al 19)."
+    },
+    {
+      "date": "2026-11-14",
+      "task": "Activación del buzón ciudadano (aplicación web formulario)."
     }
   ],
   "posts": [
@@ -171,6 +175,14 @@
       "title": "Imagen de Año Nuevo",
       "description": "Bienvenida al nuevo ciclo.",
       "note": "Optimismo y arranque de año."
+    },
+    {
+      "date": "2026-11-11",
+      "type": "Video",
+      "category": "Hugo Fest",
+      "title": "Anuncio tres",
+      "description": "Anuncio para persuadir a quienes ya vieron el anuncio uno y dos.",
+      "note": "Convertir"
     }
   ]
 }

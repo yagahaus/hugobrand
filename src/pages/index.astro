@@ -6,7 +6,12 @@ const pageTitle = parrillaData?.title || "Parrilla de Contenido";
 const deadlinesDesc = "Deadlines: Material para el diseñador";
 
 const deadlines = parrillaData?.deadlines || [];
-const posts = parrillaData?.posts || [];
+const rawPosts = parrillaData?.posts || [];
+
+// Ordenar los posts cronológicamente (del más antiguo/cercano al más lejano)
+const posts = [...rawPosts].sort((a: any, b: any) => {
+  return new Date(a.date).getTime() - new Date(b.date).getTime();
+});
 
 // Función para formatear fechas (día de la semana, número, mes, año)
 const formatPostDate = (dateStr: string) => {
