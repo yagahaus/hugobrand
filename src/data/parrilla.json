@@ -3,53 +3,21 @@
   "description": "Deadlines: Material para el diseñador",
   "deadlines": [
     {
-      "date": "2026-11-11",
-      "task": "Nuevo anuncio de conversión y planchar detalles logísticos."
-    },
-    {
-      "date": "2026-11-13",
-      "task": "Asegurar acuerdo y coordinación con los 3 microinfluencers que harán los storytimes del evento (publicarán del 17 al 19)."
-    },
-    {
-      "date": "2026-11-14",
-      "task": "Activación del buzón ciudadano (aplicación web formulario)."
+      "date": "2026-11-20",
+      "task": "Planeación de nueva estrategia."
     }
   ],
   "posts": [
     {
-      "date": "2026-11-14",
-      "type": "Video",
-      "category": "Hugo Fest",
-      "title": "¡Día del evento! (En vivo de arranque)",
-      "description": "Transmisión en vivo y cobertura del inicio oficial del festival.",
-      "note": "Capturar la energía del momento y conectar en tiempo real."
-    },
-    {
-      "date": "2026-11-14",
-      "type": "Carrusel de imágenes",
-      "category": "Hugo Fest",
-      "title": "Galería de los mejores momentos (Parte 1)",
-      "description": "Selección fotográfica estelar del primer día de actividades.",
-      "note": "Mantener la conversación activa tras el cierre de jornada."
-    },
-    {
-      "date": "2026-11-15",
-      "type": "Carrusel de imágenes",
-      "category": "Hugo Fest",
-      "title": "Galería de los mejores momentos (Parte 2)",
-      "description": "Segunda entrega fotográfica del festival.",
-      "note": "Prolongar el impacto visual del evento."
-    },
-    {
-      "date": "2026-11-16",
-      "type": "Video",
-      "category": "Hugo Fest",
-      "title": "Video resumen del equipo",
-      "description": "Cómo se vivió el festival desde adentro con el equipo de trabajo.",
-      "note": "Humanizar el proyecto y mostrar el esfuerzo detrás de cámaras."
-    },
-    {
       "date": "2026-11-17",
+      "type": "Video",
+      "category": "Hugo Fest",
+      "title": "Sondeo con emprendedores (Parte 1)",
+      "description": "Video corto / Reel con sondeos a emprendedores locales contando cómo comenzaron y su experiencia en el evento.",
+      "note": "Visibilizar las historias detrás de los negocios locales."
+    },
+    {
+      "date": "2026-11-18",
       "type": "Imagen fija",
       "category": "Posicionamiento Personal",
       "title": "Recordatorio del Buzón Ciudadano",
@@ -57,28 +25,20 @@
       "note": "Mantener viva la interacción y escucha activa."
     },
     {
-      "date": "2026-11-17",
-      "type": "Video",
-      "category": "Colaboración",
-      "title": "Microinfluencer 1: Storytime en el Hugo Fest",
-      "description": "Contenido colaborativo contando la experiencia personal en el festival.",
-      "note": "Alcanzar nuevas audiencias a través de voces locales."
-    },
-    {
       "date": "2026-11-18",
       "type": "Video",
-      "category": "Colaboración",
-      "title": "Microinfluencer 2: Storytime en el Hugo Fest",
-      "description": "Segunda perspectiva de creadores invitados sobre el evento.",
-      "note": "Consolidar el eco digital."
+      "category": "Hugo Fest",
+      "title": "Sondeo con emprendedores (Parte 2)",
+      "description": "Segunda entrega de video corto / Reel con sondeos e historias de los emprendimientos participantes.",
+      "note": "Consolidar la conexión con el comercio local."
     },
     {
       "date": "2026-11-19",
       "type": "Video",
-      "category": "Colaboración",
-      "title": "Microinfluencer 3: Storytime en el Hugo Fest",
-      "description": "Tercera entrega de historias de creadores sobre el éxito del festival.",
-      "note": "Cierre de la ola de ruido con microinfluencers."
+      "category": "Hugo Fest",
+      "title": "Sondeo con emprendedores (Parte 3)",
+      "description": "Tercera y última entrega de video corto / Reel con sondeos y agradecimientos de emprendedores.",
+      "note": "Cierre de la serie de historias de emprendimiento."
     },
     {
       "date": "2026-11-20",
@@ -175,14 +135,6 @@
       "title": "Imagen de Año Nuevo",
       "description": "Bienvenida al nuevo ciclo.",
       "note": "Optimismo y arranque de año."
-    },
-    {
-      "date": "2026-11-11",
-      "type": "Video",
-      "category": "Hugo Fest",
-      "title": "Anuncio tres",
-      "description": "Anuncio para persuadir a quienes ya vieron el anuncio uno y dos.",
-      "note": "Convertir"
     }
   ]
 }
